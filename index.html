@@ -76,6 +76,7 @@
         ];
 
         let indiceAtual = 0;
+        let pontuacao = 0;
 
     const divPergunta = document.getElementById("pergunta");
     const divOpcoes = document.getElementById("opcoes");
@@ -111,7 +112,7 @@
         if (indiceAtual < perguntas.length) {
             mostrarPergunta();
         } else {
-        divPergunta.textContent = "Fim do quiz!";
+        divPergunta.textContent = "Fim do quiz! Você acertou " + pontuacao + " de " + perguntas.length + " perguntas.";
         divOpcoes.innerHTML = "";
     }
 
