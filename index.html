@@ -47,6 +47,14 @@
         background-color: #357abd;
         }
 
+        #feedback {
+        max-width: 400px;
+        margin-top: 12px;
+        font-size: 16px;
+        font-weight: bold;
+        min-height: 24px;
+        }
+
     </style>
 
 </head>
@@ -59,6 +67,10 @@
 
     <div id="opcoes">
         
+    </div>
+
+    <div id="feedback">
+
     </div>
 
     <script>
@@ -80,6 +92,7 @@
 
     const divPergunta = document.getElementById("pergunta");
     const divOpcoes = document.getElementById("opcoes");
+    const divFeedback = document.getElementById("feedback");
 
     function mostrarPergunta() {
         const atual = perguntas[indiceAtual];
@@ -102,10 +115,10 @@
         const atual = perguntas[indiceAtual];
 
         if (indiceEscolhido === atual.correta) {
-            alert("Acertou! 🎉");
+            divFeedback.textContent = "Acertou! 🎉";
             pontuacao = pontuacao + 1;
         } else {
-            alert("Errou! A resposta certa era: " + atual.opcoes[atual.correta]);
+            divFeedback.textContent = "Errou! A resposta certa era: " + atual.opcoes[atual.correta]
         }
 
            indiceAtual = indiceAtual + 1;
@@ -116,6 +129,18 @@
         divPergunta.textContent = "Fim do quiz! Você acertou " + pontuacao + " de " + perguntas.length + " perguntas.";
         divOpcoes.innerHTML = "";
     }
+
+      setTimeout(function() {
+        divFeedback.textContent = "";
+        indiceAtual = indiceAtual + 1;
+
+        if (indiceAtual < perguntas.length) {
+            mostrarPergunta();
+        } else {
+            divPergunta.textContent = "Fim do quiz! Você acertou " + pontuacao + " de " + perguntas.length + " perguntas.";
+            divOpcoes.innerHTML = "";
+        }
+    }, 1500);
 
  }
 
