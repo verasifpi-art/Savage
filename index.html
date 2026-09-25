@@ -111,26 +111,17 @@
         divOpcoes.appendChild(botao);
     });
 }
-    function verificarResposta(indiceEscolhido) {
-        const atual = perguntas[indiceAtual];
+   function verificarResposta(indiceEscolhido) {
+    const atual = perguntas[indiceAtual];
 
-        if (indiceEscolhido === atual.correta) {
-            divFeedback.textContent = "Acertou! 🎉";
-            pontuacao = pontuacao + 1;
-        } else {
-            divFeedback.textContent = "Errou! A resposta certa era: " + atual.opcoes[atual.correta]
-        }
-
-           indiceAtual = indiceAtual + 1;
-
-        if (indiceAtual < perguntas.length) {
-            mostrarPergunta();
-        } else {
-        divPergunta.textContent = "Fim do quiz! Você acertou " + pontuacao + " de " + perguntas.length + " perguntas.";
-        divOpcoes.innerHTML = "";
+    if (indiceEscolhido === atual.correta) {
+        divFeedback.textContent = "Acertou! 🎉";
+        pontuacao = pontuacao + 1;
+    } else {
+        divFeedback.textContent = "Errou! A resposta certa era: " + atual.opcoes[atual.correta];
     }
 
-      setTimeout(function() {
+    setTimeout(function() {
         divFeedback.textContent = "";
         indiceAtual = indiceAtual + 1;
 
@@ -141,8 +132,7 @@
             divOpcoes.innerHTML = "";
         }
     }, 1500);
-
- }
+}
 
     mostrarPergunta();
     </script>
