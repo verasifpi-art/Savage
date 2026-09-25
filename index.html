@@ -105,7 +105,17 @@
         } else {
             alert("Errou! A resposta certa era: " + atual.opcoes[atual.correta]);
         }
+
+           indiceAtual = indiceAtual + 1;
+
+        if (indiceAtual < perguntas.length) {
+            mostrarPergunta();
+        } else {
+        divPergunta.textContent = "Fim do quiz!";
+        divOpcoes.innerHTML = "";
     }
+
+ }
 
     mostrarPergunta();
     </script>
