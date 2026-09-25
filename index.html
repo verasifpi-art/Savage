@@ -58,9 +58,7 @@
     </div>
 
     <div id="opcoes">
-        <button>Resposta A</button>
-        <button>Resposta B</button>
-        <button>Resposta C</button>
+        
     </div>
 
     <script>
@@ -85,6 +83,14 @@
     function mostrarPergunta() {
         const atual = perguntas[indiceAtual];
         divPergunta.textContent = atual.pergunta;
+
+    divOpcoes.innerHTML = "";
+
+    atual.opcoes.forEach(function(opcao) {
+        const botao = document.createElement("button");
+        botao.textContent = opcao;
+        divOpcoes.appendChild(botao);
+    });
     }
 
     mostrarPergunta();
