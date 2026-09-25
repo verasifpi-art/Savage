@@ -62,5 +62,32 @@
         <button>Resposta B</button>
         <button>Resposta C</button>
     </div>
+
+    <script>
+        const perguntas = [
+            {
+                pergunta: "Qual é o maior planeta do Sistema Solar?",
+                opcoes: ["Terra", "Júpiter", "Saturno"],
+                correta: 1
+            },
+            {
+                pergunta: "Quantos continentes existem?",
+                opcoes: ["5", "6", "7"],
+                correta: 2
+            }
+        ];
+
+        let indiceAtual = 0;
+
+    const divPergunta = document.getElementById("pergunta");
+    const divOpcoes = document.getElementById("opcoes");
+
+    function mostrarPergunta() {
+        const atual = perguntas[indiceAtual];
+        divPergunta.textContent = atual.pergunta;
+    }
+
+    mostrarPergunta();
+    </script>
 </body>
 </html>
