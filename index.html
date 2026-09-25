@@ -86,11 +86,25 @@
 
     divOpcoes.innerHTML = "";
 
-    atual.opcoes.forEach(function(opcao) {
+    atual.opcoes.forEach(function(opcao, indice) {
         const botao = document.createElement("button");
         botao.textContent = opcao;
+
+        botao.addEventListener("click", function() {
+            verificarResposta(indice);
+        });
+
         divOpcoes.appendChild(botao);
     });
+}
+    function verificarResposta(indiceEscolhido) {
+        const atual = perguntas[indiceAtual];
+
+        if (indiceEscolhido === atual.correta) {
+            alert("Acertou! 🎉");
+        } else {
+            alert("Errou! A resposta certa era: " + atual.opcoes[atual.correta]);
+        }
     }
 
     mostrarPergunta();
